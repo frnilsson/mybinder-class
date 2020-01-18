@@ -18,4 +18,6 @@ RUN apt-get install -y yandex-disk
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
+RUN mkdir ${HOME}/data && wget -O ${HOME}/data/yellow_tripdata_2015-01-06.csv.gz https://s3-us-west-2.amazonaws.com/nyctlc/yellow_tripdata_2015-01-06.csv.gz
+
 USER ${NB_USER}
